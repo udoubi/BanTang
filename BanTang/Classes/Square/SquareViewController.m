@@ -17,10 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    CommentItemView *view = [[CommentItemView alloc]initWithFrame:CGRectMake(0, 90, Width, 40)];
-    [self.view addSubview:view];
 }
 
 - (void)didReceiveMemoryWarning {
