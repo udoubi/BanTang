@@ -1,0 +1,26 @@
+//
+//  PrefixHeader.pch
+//  LoveFreshBeen_OC
+//
+//  Created by 天空之城 on 16/3/1.
+//  Copyright © 2016年 天空之城. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import "Masonry.h"
+#import "SVProgressHUD.h"
+#import "MJExtension.h"
+#import "AppConst.h"
+#import "UIImageView+Extension.h"
+#import "UIColor+Extension.h"
+
+
+typedef void(^Completelock)(id data,NSError *error);
+
+#define Width  [[UIScreen mainScreen] bounds].size.width
+#define Height [[UIScreen mainScreen] bounds].size.height
+
+#endif /* PrefixHeader_pch */
