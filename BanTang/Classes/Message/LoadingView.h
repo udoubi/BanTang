@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoadingView : UIView
-
+- (void)startAnimating;
+- (void) stopAnimating;
 @end

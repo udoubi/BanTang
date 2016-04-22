@@ -15,6 +15,7 @@
 #import "HomeScrollView.h"
 #import "UIBarButtonItem+Extension.h"
 #import "ProductDetailControler.h"
+#import "HomePushTransitionAnimator.h"
 
 /** 滚动标题的高度  */
 static const CGFloat kTitleVewHeight = 40;
@@ -24,7 +25,6 @@ static const CGFloat kTitleViewItemWidth = 64;
 static const CGFloat kHotViewMargin = 10;
 
 @interface HomeViewController ()<UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIScrollViewDelegate,TitleScrollViewDelegate>
-@property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) HomeData *homeData;
 @property (nonatomic,strong) TitleScrollView *titleView;
 @property (nonatomic,strong) UIView *headerView;
@@ -34,7 +34,6 @@ static const CGFloat kHotViewMargin = 10;
 
 @property (nonatomic,strong) HomeScrollView *mainScrollView;
 @property (nonatomic,strong) HomeHeadView *headView;
-@property (nonatomic,strong) UITableView *currentTableView;
 @property (nonatomic, assign) BOOL canScrollViewScroll;
 
 @property (nonatomic, assign) BOOL isTopIsCanNotMoveTabView;
@@ -52,7 +51,6 @@ static const CGFloat kHotViewMargin = 10;
 #pragma life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     [self buildNavigationbar];
     [self buildMainScrollView];
     [self loadData];
@@ -61,12 +59,14 @@ static const CGFloat kHotViewMargin = 10;
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar zz_setBackgroundColor:[[UIColor getColor:CustomBarTintColor] colorWithAlphaComponent:self.navigationBarAlpha]];
     [self.navigationController.navigationBar zz_setElementAlpha:self.navigationBarAlpha];
+    self.navigationController.delegate = self;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController.navigationBar zz_reset];
 }
 #pragma build views
 - (void)buildNavigationbar {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     UILabel *nameLabel = [[UILabel alloc]init];
     nameLabel.text = @"半糖";
     nameLabel.font = [UIFont systemFontOfSize:20];
@@ -180,6 +180,8 @@ static const CGFloat kHotViewMargin = 10;
 #pragma tableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"%@",self.navigationController);
     [self.navigationController pushViewController:[ProductDetailControler new] animated:YES];
 }
 #pragma scrollView delegate
@@ -247,4 +249,16 @@ static const CGFloat kHotViewMargin = 10;
 
 - (void)searchBtnCliked{}
 - (void)signBtnCliked{}
+#pragma <UINavigationControllerDelegate> 转场动画相关
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                         fromViewController:(UIViewController *)fromVC
+                                                           toViewController:(UIViewController *)toVC {
+    
+    if (operation == UINavigationControllerOperationPush) {
+        return [HomePushTransitionAnimator new];
+    }
+    return nil;
+}
 @end

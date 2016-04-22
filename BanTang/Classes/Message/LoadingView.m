@@ -10,28 +10,53 @@
 
 @interface LoadingView()
 
-@property (nonatomic,strong) UIView *redBall;
-@property (nonatomic,strong) UIView *yellowBall;
-@property (nonatomic,strong) UIView *blueBall;
-
+@property (nonatomic,strong) NSMutableArray<UIImage *> *imageArray;
+@property (nonatomic,strong) UIImageView *imageView;
 
 @end
 
 @implementation LoadingView
 
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        UIView *redBall = [[UIView alloc]init];
-        redBall.backgroundColor = [UIColor redColor];
-        UIView *yellowBall = [[UIView alloc]init];
-        yellowBall.backgroundColor = [UIColor yellowColor];
-        UIView *blueBall = [[UIView alloc]init];
-        blueBall.backgroundColor = [UIColor blueColor];
-        [self addSubview:redBall];
-        [self addSubview:yellowBall];
-        [self addSubview:blueBall];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        imageView.contentMode = UIViewContentModeCenter;
+        [self addSubview:imageView];
+        self.imageView = imageView;
+        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(50, 9));
+            make.center.equalTo(self);
+        }];
     }
     return self;
+}
+
+
+
+- (void)startAnimating {
+    if ([self.imageView isAnimating]) return;
+    [self.imageView setAnimationImages:self.imageArray];
+    [self.imageView setAnimationDuration:self.imageArray.count * 0.075];
+    [self.imageView setAnimationRepeatCount:0];
+    [self.imageView startAnimating];
+}
+- (void) stopAnimating {
+    if ([self.imageView isAnimating]) {
+        [self.imageView stopAnimating];
+    }
+    [self removeFromSuperview];
+}
+
+- (NSMutableArray<UIImage *> *)imageArray {
+    if (_imageArray == nil) {
+        _imageArray = [NSMutableArray array];
+        for (NSInteger i = 0; i < 21; i ++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading%ld",i + 1]];
+            [_imageArray addObject:image];
+        }
+    }
+    return _imageArray;
 }
 
 @end

@@ -1,0 +1,1 @@
+svn export https://svn.bxt189.com:435/svn/yidongzhanye/rbs/trunk/picc/WebContent/H5 /Users/bxt189/Desktop/test1 --username jiangke

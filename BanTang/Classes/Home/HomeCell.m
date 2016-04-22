@@ -10,8 +10,6 @@
 
 @interface HomeCell()
 
-@property (nonatomic,strong) UIImageView *bigImageView;
-
 @property (nonatomic,strong) UILabel *titleLabel;
 
 @property (nonatomic,strong) UILabel *likesLabel;

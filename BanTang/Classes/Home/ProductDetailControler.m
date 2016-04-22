@@ -15,16 +15,15 @@
 #import "TopicDesView.h"
 #import "UserRecomendData.h"
 #import "UserRecomendCell.h"
+#import "HomePopTransitionAnimator.h"
+#import "LoadingView.h"
 
 /** 顶部图片的高度  */
 #define kTopImageViewHeight  0.55 * Width
 /** cellId  */
 static NSString *const cellId = @"ProductCell";
 @interface ProductDetailControler ()<UITableViewDataSource,UITableViewDelegate,TitleScrollViewDelegate>
-
-@property (nonatomic,strong) UIImageView *topImageView;
-@property (nonatomic,strong) TitleScrollView *titleView;;
-@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) TitleScrollView *titleView;
 @property (nonatomic,strong) HomeTopicModel *topic;
 @property (nonatomic,strong) NSArray<UserRecomend *> *userRecomendList;
 @property (nonatomic,assign) BOOL isUserRecomend;
@@ -39,6 +38,8 @@ static NSString *const cellId = @"ProductCell";
 #pragma life cycle method
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.delegate = self;
     [self buildNavigationBar];
     [self buildTopImageView];
     [self loadTopicData];
@@ -72,10 +73,35 @@ static NSString *const cellId = @"ProductCell";
     self.navigationItem.titleView = label;
 }
 - (void)loadTopicData {
+    
+    
+    LoadingView *loadingView = [[LoadingView alloc]init];
+    [self.view addSubview:loadingView];
+    [loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+        make.center.equalTo(self.view);
+    }];
+    [loadingView startAnimating];
     [TopicDetailData loadTopicData:^(id data, NSError *error) {
         self.topic = data;
-        [self.topImageView setImageWithURL:[NSURL URLWithString:self.topic.pic] placeholderImage:nil];
-        [self buildTableView];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [loadingView stopAnimating];
+             [self buildTableView];
+            // 先刷新布局
+            [self.tableView layoutIfNeeded];
+            
+            [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view).offset(64);
+            }];
+            [self.tableView setNeedsLayout];
+            [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                [self.tableView layoutIfNeeded];
+            } completion:^(BOOL finished) {
+                
+            }];
+        });
+        
+       
     }];
     [UserRecomendData loadUserRecomendData:^(id data, NSError *error) {
         self.userRecomendList = data;
@@ -95,7 +121,7 @@ static NSString *const cellId = @"ProductCell";
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view).offset(64);
+        make.top.equalTo(self.view).offset(64 + 500);
         make.leading.trailing.bottom.equalTo(self.view);
     }];
     
@@ -176,4 +202,14 @@ static NSString *const cellId = @"ProductCell";
 - (void)favButtonCliked {}
 - (void)shareButtonCliked {}
 
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                         fromViewController:(UIViewController *)fromVC
+                                                           toViewController:(UIViewController *)toVC {
+    
+    if (operation == UINavigationControllerOperationPop) {
+        return [HomePopTransitionAnimator new];
+    }
+    return nil;
+}
 @end

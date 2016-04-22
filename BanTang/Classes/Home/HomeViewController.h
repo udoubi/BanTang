@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface HomeViewController : BaseViewController
+@interface HomeViewController : BaseViewController<UINavigationControllerDelegate>
 
+@property (nonatomic,strong) UITableView *currentTableView;
 @end

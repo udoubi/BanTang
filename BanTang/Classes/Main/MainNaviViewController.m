@@ -7,7 +7,8 @@
 //
 
 #import "MainNaviViewController.h"
-
+#import "HomePushTransitionAnimator.h"
+#import "HomeViewController.h"
 @interface MainNaviViewController ()
 
 @end
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 }
 
 - (void)didReceiveMemoryWarning {

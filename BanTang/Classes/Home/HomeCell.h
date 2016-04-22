@@ -11,6 +11,7 @@
 
 @interface HomeCell : UITableViewCell
 
+@property (nonatomic,strong) UIImageView *bigImageView;
 @property (nonatomic,strong) HomeDataElemen *topic;
 @property (nonatomic,assign) CGFloat height;
 

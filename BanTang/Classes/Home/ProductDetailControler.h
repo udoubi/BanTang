@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface ProductDetailControler : BaseViewController
-
+@interface ProductDetailControler : UIViewController<UINavigationControllerDelegate>
+@property (nonatomic,strong) UIImageView *topImageView;
+@property (nonatomic) CGRect topImgaeViewFrameInHomeView;
+@property (nonatomic,strong) UITableView *tableView;
 @end

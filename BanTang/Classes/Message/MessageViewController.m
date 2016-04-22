@@ -7,9 +7,7 @@
 //
 
 #import "MessageViewController.h"
-#import "TTTAttributedLabel.h"
-#import "UserRecomendData.h"
-#import "ProductTagView.h"
+#import "LoadingView.h"
 
 @interface MessageViewController ()
 
@@ -19,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    LoadingView *view = [[LoadingView alloc]initWithFrame:CGRectMake(0, 100, 100, 100)];
+    [self.view addSubview:view];
+    [view startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
