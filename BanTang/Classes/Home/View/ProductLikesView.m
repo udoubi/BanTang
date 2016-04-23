@@ -94,7 +94,7 @@ static const CGFloat defaultMargin = 10;
     for (NSInteger i = 0; i < count; i++) {
         UIImageView *imageView = self.imageViewArray[i];
         NSString *imageName = [NSString stringWithFormat:@"%@%@",self.userAvatrHost,product.likes_list[i].a];
-        [imageView setImageWithURL:[NSURL URLWithString:imageName ]placeholderImage:nil];
+        [imageView setImageWithURL:[NSURL URLWithString:imageName ]placeholderImage:nil animate:YES];
     }
 }
 @end

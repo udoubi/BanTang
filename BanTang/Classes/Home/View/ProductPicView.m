@@ -39,10 +39,10 @@
 }
 - (void)setImages:(NSArray<PicModel *> *)images {
     if (images.count == 2) {
-        [self.oneImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.picUrlHost,images[0].p]] placeholderImage:nil];
-        [self.towImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.picUrlHost,images[1].p]]placeholderImage:nil];
+        [self.oneImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.picUrlHost,images[0].p]] placeholderImage:nil animate:YES];
+        [self.towImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.picUrlHost,images[1].p]]placeholderImage:nil animate:YES];
     }else {
-        [self.oneImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.picUrlHost,images[0].p]] placeholderImage:nil];
+        [self.oneImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",self.picUrlHost,images[0].p]] placeholderImage:nil animate:YES];
         [self.towImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.equalTo(self);
             make.top.equalTo(_oneImageView.mas_bottom).offset(10);

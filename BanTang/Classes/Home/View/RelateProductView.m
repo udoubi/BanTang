@@ -89,7 +89,7 @@
 }
 
 - (void)setProduct:(RelateProduct *)product {
-    [self.picImageView setImageWithURL:[NSURL URLWithString:product.pic] placeholderImage:nil];
+    [self.picImageView setImageWithURL:[NSURL URLWithString:product.pic] placeholderImage:nil animate:YES];
     self.titleLabel.text = product.title;
     self.platformImageView.image = [UIImage imageNamed:@"icon_product_source_taobao"];
     self.plateformLabel.text = @"来自淘宝";

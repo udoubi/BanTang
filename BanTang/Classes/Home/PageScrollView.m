@@ -102,7 +102,7 @@ static const NSInteger MaxImageViewCount = 3;
             index = 0;
         }
         imageView.tag = index;
-        [imageView setImageWithURL:[NSURL URLWithString:self.images[index]] placeholderImage:self.placeHolderImage];
+        [imageView setImageWithURL:[NSURL URLWithString:self.images[index]] placeholderImage:self.placeHolderImage animate:NO];
     }
     self.imageScrollView.contentOffset = CGPointMake(self.imageScrollView.frame.size.width, 0);
 }

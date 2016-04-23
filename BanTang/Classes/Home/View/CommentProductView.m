@@ -88,7 +88,7 @@
 
 - (void)setProduct:(RelateProduct *)product {
     
-    [self.picImageView setImageWithURL:[NSURL URLWithString:product.pic] placeholderImage:nil];
+    [self.picImageView setImageWithURL:[NSURL URLWithString:product.pic] placeholderImage:nil animate:YES];
     self.keyWordsLabel.text = @"测试";
     self.plateformLabel.text = @"淘宝";
     self.priceLabel.text = [NSString stringWithFormat:@"¥%@",product.price];;

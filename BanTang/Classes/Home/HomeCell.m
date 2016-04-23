@@ -59,7 +59,7 @@
 }
 
 - (void)setTopic:(HomeDataElemen *)topic {
-    [self.bigImageView setImageWithURL:[NSURL URLWithString:topic.pic] placeholderImage:nil];
+    [self.bigImageView setImageWithURL:[NSURL URLWithString:topic.pic] placeholderImage:nil animate:YES];
     self.titleLabel.text = topic.title;
     self.likesLabel.text = topic.likes;
 }

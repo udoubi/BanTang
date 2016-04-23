@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImageView (Extension)
-
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage;
-
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage animate:(BOOL)animate;
 @end

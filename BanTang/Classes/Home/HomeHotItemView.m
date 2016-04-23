@@ -45,7 +45,7 @@
 
 + (instancetype)IconImageTextView:(NSString *)image title:(NSString *)title placeHolder:(UIImage *)placeHolder {
     HomeHotItemView *view = [[self alloc]init];
-    [view.imageView setImageWithURL:[NSURL URLWithString:image] placeholderImage:placeHolder];
+    [view.imageView setImageWithURL:[NSURL URLWithString:image] placeholderImage:placeHolder animate:YES];
     view.label.text = title;
     return view;
 }

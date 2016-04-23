@@ -210,10 +210,10 @@
 }
 
 - (void)setRecomend:(UserRecomend *)recomend {
-    [self.iconImageView setImageWithURL:[NSURL URLWithString:recomend.author.avatar] placeholderImage:[UIImage imageNamed:@"HeaderPlaceHolder"]];
+    [self.iconImageView setImageWithURL:[NSURL URLWithString:recomend.author.avatar] placeholderImage:[UIImage imageNamed:@"HeaderPlaceHolder"] animate:YES];
     self.nameLabel.text = recomend.author.nickname;
     self.timeLabel.text = recomend.datestr;
-    [self.goodsImageView setImageWithURL:[NSURL URLWithString:recomend.pics[0].url] placeholderImage:nil];
+    [self.goodsImageView setImageWithURL:[NSURL URLWithString:recomend.pics[0].url] placeholderImage:nil animate:YES];
     self.tagView.tags = recomend.tags;
     self.desLabel.text = recomend.content;
     self.relateProductView.product = recomend.product[0];

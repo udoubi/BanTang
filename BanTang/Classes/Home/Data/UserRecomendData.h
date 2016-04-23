@@ -65,7 +65,7 @@
 @property (nonatomic,copy) NSString *views;
 @property (nonatomic,copy) NSString *comments;
 @property (nonatomic,copy) NSString *likes;
-
+@property (nonatomic,copy) NSString *posts;
 @end
 
 @interface AuthorModel : NSObject

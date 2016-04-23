@@ -6,16 +6,16 @@
 //  Copyright © 2016年 天空之城. All rights reserved.
 //
 
-#import "SquareGroupItemView.h"
+#import "SquareChannelItemView.h"
 
-@interface SquareGroupItemView()
+@interface SquareChannelItemView()
 
 @property (nonatomic,strong) UIImageView *bgImageView;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *subTitleLabel;
 @end
 
-@implementation SquareGroupItemView
+@implementation SquareChannelItemView
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         UIImageView *bgImageView = [UIImageView new];
@@ -23,9 +23,11 @@
         UILabel *titleLabel =[UILabel new];
         UILabel *subTitleLabel =[UILabel new];
         titleLabel.font = [UIFont fontWithName:ThinFont size:14];
-        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.textColor = [UIColor blackColor];
         subTitleLabel.font = [UIFont fontWithName:ThinFont size:12];
-        subTitleLabel.textColor = [UIColor whiteColor];
+        subTitleLabel.textAlignment = NSTextAlignmentCenter;
+        subTitleLabel.textColor = [UIColor colorWithWhite:0.466 alpha:1.000];
         
         [self addSubview:bgImageView];
         [self addSubview:titleLabel];
@@ -54,6 +56,12 @@
         self.subTitleLabel = subTitleLabel;
     }
     return self;
+}
+
+- (void)setChannelItem:(SquareChannelItem *)channelItem {
+    self.titleLabel.text = channelItem.title;
+    self.subTitleLabel.text = channelItem.sub_title;
+    [self.bgImageView setImageWithURL:channelItem.photo placeholderImage:nil animate:YES];
 }
 
 @end

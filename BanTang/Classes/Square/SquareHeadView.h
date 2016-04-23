@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SquareData.h"
 
-@interface SquareGroupView : UIView
+@interface SquareHeadView : UIView
 
+- (instancetype)initWithSquareData:(SquareData *)squareData;
 @end

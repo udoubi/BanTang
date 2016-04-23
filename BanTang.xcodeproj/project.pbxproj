@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		69149CA32AB3A9A36D7EE544 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C978ADC17D3733781344D21 /* libPods.a */; };
-		CF27D17E1CCA7912006EF0D3 /* SquareGroupItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF27D17D1CCA7912006EF0D3 /* SquareGroupItemView.m */; };
-		CF27D1811CCA7CE0006EF0D3 /* SquareGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF27D1801CCA7CE0006EF0D3 /* SquareGroupView.m */; };
+		CF27D17E1CCA7912006EF0D3 /* SquareChannelItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF27D17D1CCA7912006EF0D3 /* SquareChannelItemView.m */; };
+		CF27D1811CCA7CE0006EF0D3 /* SquareHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF27D1801CCA7CE0006EF0D3 /* SquareHeadView.m */; };
 		CF27D1831CCA7E90006EF0D3 /* community_data in Resources */ = {isa = PBXBuildFile; fileRef = CF27D1821CCA7E90006EF0D3 /* community_data */; };
+		CF2D22A61CCB116200AE59B9 /* SquareData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2D22A51CCB116200AE59B9 /* SquareData.m */; };
+		CF2D22A91CCB173A00AE59B9 /* SquareChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2D22A81CCB173A00AE59B9 /* SquareChannelView.m */; };
 		CF3059B21CBC997B00D1DF88 /* HomePushTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3059B11CBC997B00D1DF88 /* HomePushTransitionAnimator.m */; };
 		CF3920FE1CAD14B200FDEF91 /* HomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3920FD1CAD14B200FDEF91 /* HomeCollectionCell.m */; };
 		CF3921011CAD1DC800FDEF91 /* HomeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3921001CAD1DC800FDEF91 /* HomeScrollView.m */; };
@@ -72,11 +74,15 @@
 /* Begin PBXFileReference section */
 		3C978ADC17D3733781344D21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41CDCBEE6FB13A7BEF4E92C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		CF27D17C1CCA7912006EF0D3 /* SquareGroupItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareGroupItemView.h; sourceTree = "<group>"; };
-		CF27D17D1CCA7912006EF0D3 /* SquareGroupItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareGroupItemView.m; sourceTree = "<group>"; };
-		CF27D17F1CCA7CE0006EF0D3 /* SquareGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareGroupView.h; sourceTree = "<group>"; };
-		CF27D1801CCA7CE0006EF0D3 /* SquareGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareGroupView.m; sourceTree = "<group>"; };
+		CF27D17C1CCA7912006EF0D3 /* SquareChannelItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareChannelItemView.h; path = ../SquareChannelItemView.h; sourceTree = "<group>"; };
+		CF27D17D1CCA7912006EF0D3 /* SquareChannelItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquareChannelItemView.m; path = ../SquareChannelItemView.m; sourceTree = "<group>"; };
+		CF27D17F1CCA7CE0006EF0D3 /* SquareHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareHeadView.h; path = ../SquareHeadView.h; sourceTree = "<group>"; };
+		CF27D1801CCA7CE0006EF0D3 /* SquareHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquareHeadView.m; path = ../SquareHeadView.m; sourceTree = "<group>"; };
 		CF27D1821CCA7E90006EF0D3 /* community_data */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = community_data; sourceTree = "<group>"; };
+		CF2D22A41CCB116200AE59B9 /* SquareData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareData.h; sourceTree = "<group>"; };
+		CF2D22A51CCB116200AE59B9 /* SquareData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareData.m; sourceTree = "<group>"; };
+		CF2D22A71CCB173A00AE59B9 /* SquareChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareChannelView.h; sourceTree = "<group>"; };
+		CF2D22A81CCB173A00AE59B9 /* SquareChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareChannelView.m; sourceTree = "<group>"; };
 		CF3059B01CBC997B00D1DF88 /* HomePushTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePushTransitionAnimator.h; sourceTree = "<group>"; };
 		CF3059B11CBC997B00D1DF88 /* HomePushTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePushTransitionAnimator.m; sourceTree = "<group>"; };
 		CF3920FC1CAD14B200FDEF91 /* HomeCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeCollectionCell.h; path = ../HomeCollectionCell.h; sourceTree = "<group>"; };
@@ -162,8 +168,8 @@
 		CFB5451C1CCA108500DA0E9B /* PhotoCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionView.m; sourceTree = "<group>"; };
 		CFB5451D1CCA108500DA0E9B /* PhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGroupView.h; sourceTree = "<group>"; };
 		CFB5451E1CCA108500DA0E9B /* PhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGroupView.m; sourceTree = "<group>"; };
-		CFB545271CCA24C200DA0E9B /* SquareTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareTitleView.h; sourceTree = "<group>"; };
-		CFB545281CCA24C200DA0E9B /* SquareTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareTitleView.m; sourceTree = "<group>"; };
+		CFB545271CCA24C200DA0E9B /* SquareTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareTitleView.h; path = ../SquareTitleView.h; sourceTree = "<group>"; };
+		CFB545281CCA24C200DA0E9B /* SquareTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquareTitleView.m; path = ../SquareTitleView.m; sourceTree = "<group>"; };
 		CFC4CE001CA6284A002F6A48 /* HomeHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeHeadView.h; path = ../HomeHeadView.h; sourceTree = "<group>"; };
 		CFC4CE011CA6284A002F6A48 /* HomeHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeHeadView.m; path = ../HomeHeadView.m; sourceTree = "<group>"; };
 		CFC4CE031CA63FAB002F6A48 /* MainNaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNaviViewController.h; sourceTree = "<group>"; };
@@ -218,6 +224,30 @@
 				D13F1F12747D088EFCD920CB /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF2D22A21CCB10CE00AE59B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF2D22A41CCB116200AE59B9 /* SquareData.h */,
+				CF2D22A51CCB116200AE59B9 /* SquareData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF2D22A31CCB10CE00AE59B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFB545271CCA24C200DA0E9B /* SquareTitleView.h */,
+				CFB545281CCA24C200DA0E9B /* SquareTitleView.m */,
+				CF27D17C1CCA7912006EF0D3 /* SquareChannelItemView.h */,
+				CF27D17D1CCA7912006EF0D3 /* SquareChannelItemView.m */,
+				CF27D17F1CCA7CE0006EF0D3 /* SquareHeadView.h */,
+				CF27D1801CCA7CE0006EF0D3 /* SquareHeadView.m */,
+				CF2D22A71CCB173A00AE59B9 /* SquareChannelView.h */,
+				CF2D22A81CCB173A00AE59B9 /* SquareChannelView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CF3B6CF51CA36FD00010E7C0 = {
@@ -352,14 +382,10 @@
 		CF3B6D6E1CA3A60A0010E7C0 /* Square */ = {
 			isa = PBXGroup;
 			children = (
+				CF2D22A21CCB10CE00AE59B9 /* Model */,
+				CF2D22A31CCB10CE00AE59B9 /* View */,
 				CF3B6D811CA3A9210010E7C0 /* SquareViewController.h */,
 				CF3B6D821CA3A9210010E7C0 /* SquareViewController.m */,
-				CFB545271CCA24C200DA0E9B /* SquareTitleView.h */,
-				CFB545281CCA24C200DA0E9B /* SquareTitleView.m */,
-				CF27D17C1CCA7912006EF0D3 /* SquareGroupItemView.h */,
-				CF27D17D1CCA7912006EF0D3 /* SquareGroupItemView.m */,
-				CF27D17F1CCA7CE0006EF0D3 /* SquareGroupView.h */,
-				CF27D1801CCA7CE0006EF0D3 /* SquareGroupView.m */,
 			);
 			path = Square;
 			sourceTree = "<group>";
@@ -613,7 +639,7 @@
 				CF4B2F531CA53D26000EF031 /* HomeCell.m in Sources */,
 				CF3B6D991CA3CF5A0010E7C0 /* PageScrollView.m in Sources */,
 				CF3921041CAE231700FDEF91 /* ProductDetailControler.m in Sources */,
-				CF27D17E1CCA7912006EF0D3 /* SquareGroupItemView.m in Sources */,
+				CF27D17E1CCA7912006EF0D3 /* SquareChannelItemView.m in Sources */,
 				CF39210C1CAE515200FDEF91 /* ProductCell.m in Sources */,
 				CF3B6D061CA36FD00010E7C0 /* AppDelegate.m in Sources */,
 				CFB545251CCA108500DA0E9B /* PhotoCollectionView.m in Sources */,
@@ -621,6 +647,7 @@
 				CF3B6D831CA3A9210010E7C0 /* SquareViewController.m in Sources */,
 				CF6868191CB6525E0037E93A /* CommentItemView.m in Sources */,
 				CF3B6D9F1CA3E0E90010E7C0 /* HomeHotItemView.m in Sources */,
+				CF2D22A91CCB173A00AE59B9 /* SquareChannelView.m in Sources */,
 				CFE271231CB343E100FF641E /* UINavigationBar+Extension.m in Sources */,
 				CF3B6D741CA3A8DF0010E7C0 /* BaseViewController.m in Sources */,
 				CFE271351CB4F89600FF641E /* RelateProductView.m in Sources */,
@@ -633,6 +660,7 @@
 				CFE2712F1CB4F43900FF641E /* ProductToolBar.m in Sources */,
 				CF3B6D951CA3C6EB0010E7C0 /* UIColor+Extension.m in Sources */,
 				CFB545291CCA24C200DA0E9B /* SquareTitleView.m in Sources */,
+				CF2D22A61CCB116200AE59B9 /* SquareData.m in Sources */,
 				CF3921171CAE67EA00FDEF91 /* ProductPicView.m in Sources */,
 				CFE271261CB3555600FF641E /* UIBarButtonItem+Extension.m in Sources */,
 				CF4B2F3F1CA4C2AA000EF031 /* TitleScrollView.m in Sources */,
@@ -650,7 +678,7 @@
 				CF3921011CAD1DC800FDEF91 /* HomeScrollView.m in Sources */,
 				CF3B6D941CA3C6EB0010E7C0 /* AppConst.m in Sources */,
 				CFC4CE051CA63FAB002F6A48 /* MainNaviViewController.m in Sources */,
-				CF27D1811CCA7CE0006EF0D3 /* SquareGroupView.m in Sources */,
+				CF27D1811CCA7CE0006EF0D3 /* SquareHeadView.m in Sources */,
 				CFB545201CCA108500DA0E9B /* PhotoSelectedModel.m in Sources */,
 				CF3921141CAE671F00FDEF91 /* ProductBottonBar.m in Sources */,
 				CFE271381CB4FBCC00FF641E /* CommentListView.m in Sources */,

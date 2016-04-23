@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SquareGroupItemView : UIView
-
+#import "SquareData.h"
+@interface SquareChannelItemView : UIView
+@property (nonatomic,strong) SquareChannelItem *channelItem;
 @end
