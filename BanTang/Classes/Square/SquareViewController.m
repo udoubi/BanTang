@@ -8,6 +8,8 @@
 
 #import "SquareViewController.h"
 #import "CommentItemView.h"
+#import "UIBarButtonItem+Extension.h"
+#import "SquareTitleView.h"
 
 @interface SquareViewController ()
 
@@ -17,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self buildNavigationbar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,15 +27,16 @@
     // Dispose of any resources that can be recreated.
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma build views
+- (void)buildNavigationbar {
+    UIBarButtonItem *searchItem = [UIBarButtonItem barBtnItemWithNmlImg:@"searchBtn" hltImg:@"searchBtn" target:self action:@selector(searchBtnCliked)];
+    UIBarButtonItem *addItem = [UIBarButtonItem barBtnItemWithNmlImg:@"community_add_friend" hltImg:@"community_add_friend" target:self action:@selector(addBtnCliked)];
+    self.navigationItem.leftBarButtonItem = searchItem;
+    self.navigationItem.rightBarButtonItem = addItem;
+    
+    SquareTitleView *titleView = [[SquareTitleView alloc]initWithFrame:CGRectMake(0, 0, 120, 30)];
+    self.navigationItem.titleView = titleView;
 }
-*/
-
+- (void)searchBtnCliked {}
+- (void)addBtnCliked {}
 @end

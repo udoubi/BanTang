@@ -27,6 +27,8 @@
     UITabBar *tabbar = [UITabBar appearance];
     tabbar.translucent = NO;
     UINavigationBar *navBar = [UINavigationBar appearance];
+    navBar.barTintColor = [UIColor colorWithRed:0.906 green:0.220 blue:0.239 alpha:1.000];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont fontWithName:LightFont size:17]};
     navBar.tintColor = [UIColor whiteColor];
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
