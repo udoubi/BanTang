@@ -13,19 +13,20 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         UIImageView *iconImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"HeaderPlaceHolder"]];
-        UITextField *textField = [[UITextField alloc]init];
-        textField.borderStyle= UITextBorderStyleRoundedRect;
-//        textField.background = [UIImage imageNamed:@"bg_comment_text_field"];
-        textField.placeholder = @"说点什么";
-        textField.font = [UIFont fontWithName:ThinFont size:13];
+        UIButton *commnetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [commnetBtn setBackgroundImage:[UIImage imageNamed:@"bg_comment_text_field"] forState:UIControlStateNormal];
+        commnetBtn.titleLabel.font = [UIFont fontWithName:ThinFont size:13];
+        commnetBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -150, 0, 0);
+        [commnetBtn setTitleColor:[UIColor colorWithWhite:0.522 alpha:1.000] forState:UIControlStateNormal];
+        [commnetBtn setTitle:@"说点什么" forState:UIControlStateNormal];
         [self addSubview:iconImageView];
-        [self addSubview:textField];
+        [self addSubview:commnetBtn];
         [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(self).offset(10);
             make.size.mas_equalTo(CGSizeMake(30, 30));
             make.centerY.equalTo(self);
         }];
-        [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        [commnetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.equalTo(iconImageView.mas_trailing).offset(10);
             make.trailing.equalTo(self).offset(-10);
             make.height.mas_equalTo(30);

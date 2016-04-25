@@ -20,6 +20,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor clearColor];
+        self.userInteractionEnabled = NO;
         UIImageView *imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeCenter;
         [self addSubview:imageView];
@@ -32,6 +34,33 @@
     return self;
 }
 
++ (instancetype)sharedView {
+    static LoadingView *loadingView;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        loadingView = [[LoadingView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    });
+    return loadingView;
+}
+
++ (void)show {
+    NSEnumerator *frontToBackWindows = [UIApplication.sharedApplication.windows reverseObjectEnumerator];
+    for (UIWindow *window in frontToBackWindows) {
+        BOOL windowOnMainScreen = window.screen == UIScreen.mainScreen;
+        BOOL windowIsVisible = !window.hidden && window.alpha > 0;
+        BOOL windowLevelNormal = window.windowLevel == UIWindowLevelNormal;
+        
+        if(windowOnMainScreen && windowIsVisible && windowLevelNormal) {
+            [window addSubview:[self sharedView]];
+            [[self sharedView] startAnimating];
+            break;
+        }
+    }
+}
++ (void)dismiss {
+    [[self sharedView] stopAnimating];
+    [[self sharedView] removeFromSuperview];
+}
 
 
 - (void)startAnimating {

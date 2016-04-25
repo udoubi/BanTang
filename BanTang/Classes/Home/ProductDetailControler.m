@@ -20,6 +20,8 @@
 
 /** 顶部图片的高度  */
 #define kTopImageViewHeight  0.55 * Width
+
+#define kTitleScrollViewH  44
 /** cellId  */
 static NSString *const cellId = @"ProductCell";
 @interface ProductDetailControler ()<UITableViewDataSource,UITableViewDelegate,TitleScrollViewDelegate>
@@ -51,14 +53,7 @@ static NSString *const cellId = @"ProductCell";
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController.navigationBar zz_reset];
 }
-- (TitleScrollView *)titleView {
-    if (_titleView == nil) {
-        _titleView = [[TitleScrollView alloc]initWithTitleArray:@[@"半糖精选",@"用户推荐"] itemWidth:Width * 0.5];
-        _titleView.delegate = self;
-        _titleView.frame = CGRectMake(0, 0, Width, 44);
-    }
-    return _titleView;
-}
+
 
 #pragma build view
 - (void)buildNavigationBar {
@@ -73,19 +68,11 @@ static NSString *const cellId = @"ProductCell";
     self.navigationItem.titleView = label;
 }
 - (void)loadTopicData {
-    
-    
-    LoadingView *loadingView = [[LoadingView alloc]init];
-    [self.view addSubview:loadingView];
-    [loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(100, 100));
-        make.center.equalTo(self.view);
-    }];
-    [loadingView startAnimating];
+    [LoadingView show];
     [TopicDetailData loadTopicData:^(id data, NSError *error) {
         self.topic = data;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [loadingView stopAnimating];
+            [LoadingView dismiss];
              [self buildTableView];
             // 先刷新布局
             [self.tableView layoutIfNeeded];
@@ -136,8 +123,13 @@ static NSString *const cellId = @"ProductCell";
     CGFloat topicDesViewH = [topicDesView viewHeight:self.topic];
     topicDesView.frame = CGRectMake(0, kTopImageViewHeight - 64 , Width , topicDesViewH);
     [headerView addSubview:topicDesView];
-    headerView.frame = CGRectMake(0, 0, Width, kTopImageViewHeight - 64 + topicDesViewH);
     
+    TitleScrollView *titleView = [[TitleScrollView alloc]initWithTitleArray:@[@"半糖精选",@"用户推荐"] itemWidth:Width * 0.5];
+    titleView.delegate = self;
+    titleView.frame = CGRectMake(0, CGRectGetMaxY(topicDesView.frame), Width, kTitleScrollViewH);
+    [headerView addSubview:titleView];
+    self.titleView = titleView;
+    headerView.frame = CGRectMake(0, 0, Width, CGRectGetMaxY(titleView.frame));
     self.tableView.tableHeaderView = headerView;
 }
 
@@ -164,15 +156,6 @@ static NSString *const cellId = @"ProductCell";
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 44;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    return self.titleView;
-}
-
 #pragma scrollView delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -189,6 +172,15 @@ static NSString *const cellId = @"ProductCell";
         self.topImageView.frame = CGRectMake(-(Width * scale - Width) * 0.5, 0, Width * scale, bigImageH);
     }else{
         self.topImageView.frame = CGRectMake(0, -scrollView.contentOffset.y, CGRectGetWidth(self.topImageView.frame), CGRectGetHeight(self.topImageView.frame));
+    }
+    CGFloat titleViewX = CGRectGetMaxY(self.tableView.tableHeaderView.frame) - kTitleScrollViewH;
+    
+    if (scrollView.contentOffset.y > titleViewX) {
+        self.titleView.frame = CGRectMake(0, 64, Width, kTitleScrollViewH);
+        [self.view addSubview:self.titleView];
+    }else {
+        self.titleView.frame = CGRectMake(0, titleViewX, Width, kTitleScrollViewH);
+        [self.tableView.tableHeaderView addSubview:self.titleView];
     }
 }
 

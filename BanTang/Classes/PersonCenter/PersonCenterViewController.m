@@ -7,32 +7,44 @@
 //
 
 #import "PersonCenterViewController.h"
-
+#import "UIBarButtonItem+Extension.h"
+#import "UINavigationBar+Extension.h"
+#import "UserInfoData.h"
+#import "MineHeadTopView.h"
 @interface PersonCenterViewController ()
 
+@property (nonatomic,assign) CGFloat navigationBarAlpha;
+@property (nonatomic,strong) UserInfoData *userInfo;
 @end
 
 @implementation PersonCenterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"个人中心";
-    // Do any additional setup after loading the view.
+    [self buildNavigationbar];
+    [self loadData];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController.navigationBar zz_setBackgroundColor:[[UIColor getColor:CustomBarTintColor] colorWithAlphaComponent:self.navigationBarAlpha]];
+    [self.navigationController.navigationBar zz_setElementAlpha:self.navigationBarAlpha];
+}
+- (void)buildNavigationbar {
+    self.navigationItem.title = @"个人中心";
+    UIBarButtonItem *settingItem = [UIBarButtonItem barBtnItemWithNmlImg:@"settingicon" hltImg:@"settingicon" target:self action:@selector(settingBtnCliked)];
+    self.navigationItem.rightBarButtonItem = settingItem;
+}
+- (void)loadData {
+    [UserInfoData loaduUserData:^(id data, NSError *error) {
+        self.userInfo = data;
+        MineHeadTopView *headView = [[MineHeadTopView alloc]initWithFrame:CGRectMake(0, 0, Width, Width * 0.8125)];
+        headView.userInfo = data;
+        [self.view addSubview:headView];
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+- (void)settingBtnCliked {}
 
 @end

@@ -22,10 +22,10 @@
         bgImageView.layer.cornerRadius = 25;
         UILabel *titleLabel =[UILabel new];
         UILabel *subTitleLabel =[UILabel new];
-        titleLabel.font = [UIFont fontWithName:ThinFont size:14];
+        titleLabel.font = [UIFont fontWithName:ThinFont size:13];
         titleLabel.textAlignment = NSTextAlignmentCenter;
         titleLabel.textColor = [UIColor blackColor];
-        subTitleLabel.font = [UIFont fontWithName:ThinFont size:12];
+        subTitleLabel.font = [UIFont fontWithName:ThinFont size:11];
         subTitleLabel.textAlignment = NSTextAlignmentCenter;
         subTitleLabel.textColor = [UIColor colorWithWhite:0.466 alpha:1.000];
         
@@ -36,19 +36,19 @@
         [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(50, 50));
             make.centerX.equalTo(self);
-            make.top.equalTo(self).offset(10);
+            make.top.equalTo(self).offset(5);
         }];
         
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.equalTo(self);
-            make.top.equalTo(bgImageView.mas_bottom);
+            make.top.equalTo(bgImageView.mas_bottom).offset(5);
             make.height.mas_equalTo(20);
         }];
         
         [subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.bottom.equalTo(self);
             make.top.equalTo(titleLabel.mas_bottom);
-            make.height.mas_equalTo(20);
+            make.height.mas_equalTo(15);
         }];
         
         self.bgImageView = bgImageView;

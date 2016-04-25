@@ -28,7 +28,13 @@
         PageScrollView *pageView = [PageScrollView pageScollView:bannerImages placeHolder:nil];
         [self addSubview:pageView];
         
-        HomeHotView *hotView = [[HomeHotView alloc]initWithHotItems:homeData.hotItems];
+        NSMutableArray *titles = [NSMutableArray array];
+        NSMutableArray *images = [NSMutableArray array];
+        [homeData.hotItems enumerateObjectsUsingBlock:^(HomeDataElemen *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [titles addObject:obj.title];
+            [images addObject:obj.photo];
+        }];
+        HomeHotView *hotView = [[HomeHotView alloc]initWithTitles:titles images:images];
         [self addSubview:hotView];
         self.hotView = hotView;
         [pageView mas_makeConstraints:^(MASConstraintMaker *make) {

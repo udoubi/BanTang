@@ -127,6 +127,13 @@ static CGFloat const kPhotoGroupViewHeight = 280;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            UIImagePickerController *ctr = [[UIImagePickerController alloc]init];
+            ctr.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:ctr animated:YES completion:nil];
+        }else {
+            NSLog(@"不支持相机");
+        }
         
     }else{
         BOOL isAdded = NO;

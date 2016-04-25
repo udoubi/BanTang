@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		69149CA32AB3A9A36D7EE544 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C978ADC17D3733781344D21 /* libPods.a */; };
+		CF0F49FC1CCDA45E00391857 /* SquareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F49FB1CCDA45E00391857 /* SquareCell.m */; };
+		CF0F49FF1CCDAB1F00391857 /* SquareTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F49FE1CCDAB1F00391857 /* SquareTableHeaderView.m */; };
+		CF0F4A021CCDBF8800391857 /* FollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F4A011CCDBF8800391857 /* FollowViewController.m */; };
+		CF0F4A051CCE081100391857 /* appinit in Resources */ = {isa = PBXBuildFile; fileRef = CF0F4A031CCE081100391857 /* appinit */; };
+		CF0F4A061CCE081100391857 /* userinfo in Resources */ = {isa = PBXBuildFile; fileRef = CF0F4A041CCE081100391857 /* userinfo */; };
+		CF0F4A0B1CCE0ABD00391857 /* MineTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F4A0A1CCE0ABD00391857 /* MineTitleButton.m */; };
+		CF0F4A0E1CCE0D0F00391857 /* MineHeadTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F4A0D1CCE0D0F00391857 /* MineHeadTopView.m */; };
+		CF0F4A111CCE11B700391857 /* UserInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F4A101CCE11B700391857 /* UserInfoData.m */; };
+		CF0F4A141CCE1B4500391857 /* MineHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F4A131CCE1B4500391857 /* MineHeadView.m */; };
 		CF27D17E1CCA7912006EF0D3 /* SquareChannelItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF27D17D1CCA7912006EF0D3 /* SquareChannelItemView.m */; };
 		CF27D1811CCA7CE0006EF0D3 /* SquareHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF27D1801CCA7CE0006EF0D3 /* SquareHeadView.m */; };
 		CF27D1831CCA7E90006EF0D3 /* community_data in Resources */ = {isa = PBXBuildFile; fileRef = CF27D1821CCA7E90006EF0D3 /* community_data */; };
@@ -74,6 +83,22 @@
 /* Begin PBXFileReference section */
 		3C978ADC17D3733781344D21 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41CDCBEE6FB13A7BEF4E92C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CF0F49FA1CCDA45E00391857 /* SquareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareCell.h; sourceTree = "<group>"; };
+		CF0F49FB1CCDA45E00391857 /* SquareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareCell.m; sourceTree = "<group>"; };
+		CF0F49FD1CCDAB1F00391857 /* SquareTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareTableHeaderView.h; sourceTree = "<group>"; };
+		CF0F49FE1CCDAB1F00391857 /* SquareTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareTableHeaderView.m; sourceTree = "<group>"; };
+		CF0F4A001CCDBF8800391857 /* FollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowViewController.h; sourceTree = "<group>"; };
+		CF0F4A011CCDBF8800391857 /* FollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowViewController.m; sourceTree = "<group>"; };
+		CF0F4A031CCE081100391857 /* appinit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = appinit; sourceTree = "<group>"; };
+		CF0F4A041CCE081100391857 /* userinfo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = userinfo; sourceTree = "<group>"; };
+		CF0F4A091CCE0ABD00391857 /* MineTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTitleButton.h; sourceTree = "<group>"; };
+		CF0F4A0A1CCE0ABD00391857 /* MineTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTitleButton.m; sourceTree = "<group>"; };
+		CF0F4A0C1CCE0D0F00391857 /* MineHeadTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineHeadTopView.h; sourceTree = "<group>"; };
+		CF0F4A0D1CCE0D0F00391857 /* MineHeadTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineHeadTopView.m; sourceTree = "<group>"; };
+		CF0F4A0F1CCE11B700391857 /* UserInfoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoData.h; sourceTree = "<group>"; };
+		CF0F4A101CCE11B700391857 /* UserInfoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoData.m; sourceTree = "<group>"; };
+		CF0F4A121CCE1B4500391857 /* MineHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineHeadView.h; sourceTree = "<group>"; };
+		CF0F4A131CCE1B4500391857 /* MineHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineHeadView.m; sourceTree = "<group>"; };
 		CF27D17C1CCA7912006EF0D3 /* SquareChannelItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareChannelItemView.h; path = ../SquareChannelItemView.h; sourceTree = "<group>"; };
 		CF27D17D1CCA7912006EF0D3 /* SquareChannelItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquareChannelItemView.m; path = ../SquareChannelItemView.m; sourceTree = "<group>"; };
 		CF27D17F1CCA7CE0006EF0D3 /* SquareHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareHeadView.h; path = ../SquareHeadView.h; sourceTree = "<group>"; };
@@ -226,6 +251,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CF0F4A071CCE08D000391857 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF0F4A0F1CCE11B700391857 /* UserInfoData.h */,
+				CF0F4A101CCE11B700391857 /* UserInfoData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF0F4A081CCE08D000391857 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF0F4A091CCE0ABD00391857 /* MineTitleButton.h */,
+				CF0F4A0A1CCE0ABD00391857 /* MineTitleButton.m */,
+				CF0F4A0C1CCE0D0F00391857 /* MineHeadTopView.h */,
+				CF0F4A0D1CCE0D0F00391857 /* MineHeadTopView.m */,
+				CF0F4A121CCE1B4500391857 /* MineHeadView.h */,
+				CF0F4A131CCE1B4500391857 /* MineHeadView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CF2D22A21CCB10CE00AE59B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +293,10 @@
 				CF27D1801CCA7CE0006EF0D3 /* SquareHeadView.m */,
 				CF2D22A71CCB173A00AE59B9 /* SquareChannelView.h */,
 				CF2D22A81CCB173A00AE59B9 /* SquareChannelView.m */,
+				CF0F49FA1CCDA45E00391857 /* SquareCell.h */,
+				CF0F49FB1CCDA45E00391857 /* SquareCell.m */,
+				CF0F49FD1CCDAB1F00391857 /* SquareTableHeaderView.h */,
+				CF0F49FE1CCDAB1F00391857 /* SquareTableHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,6 +360,8 @@
 		CF3B6D661CA3A4B90010E7C0 /* Resouce */ = {
 			isa = PBXGroup;
 			children = (
+				CF0F4A031CCE081100391857 /* appinit */,
+				CF0F4A041CCE081100391857 /* userinfo */,
 				CF27D1821CCA7E90006EF0D3 /* community_data */,
 				CF39210D1CAE52E500FDEF91 /* user_recomend */,
 				CF3921051CAE384400FDEF91 /* topic_detail */,
@@ -362,6 +415,8 @@
 		CF3B6D6C1CA3A60A0010E7C0 /* PersonCenter */ = {
 			isa = PBXGroup;
 			children = (
+				CF0F4A071CCE08D000391857 /* Model */,
+				CF0F4A081CCE08D000391857 /* View */,
 				CF3B6D7B1CA3A90B0010E7C0 /* PersonCenterViewController.h */,
 				CF3B6D7C1CA3A90B0010E7C0 /* PersonCenterViewController.m */,
 			);
@@ -386,6 +441,8 @@
 				CF2D22A31CCB10CE00AE59B9 /* View */,
 				CF3B6D811CA3A9210010E7C0 /* SquareViewController.h */,
 				CF3B6D821CA3A9210010E7C0 /* SquareViewController.m */,
+				CF0F4A001CCDBF8800391857 /* FollowViewController.h */,
+				CF0F4A011CCDBF8800391857 /* FollowViewController.m */,
 			);
 			path = Square;
 			sourceTree = "<group>";
@@ -570,9 +627,11 @@
 				CF27D1831CCA7E90006EF0D3 /* community_data in Resources */,
 				CF3B6D111CA36FD00010E7C0 /* LaunchScreen.storyboard in Resources */,
 				CF3921061CAE384400FDEF91 /* topic_detail in Resources */,
+				CF0F4A061CCE081100391857 /* userinfo in Resources */,
 				CF3B6D0E1CA36FD00010E7C0 /* Assets.xcassets in Resources */,
 				CF39210E1CAE52E500FDEF91 /* user_recomend in Resources */,
 				CF3B6D681CA3A4DA0010E7C0 /* HomeData in Resources */,
+				CF0F4A051CCE081100391857 /* appinit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,7 +690,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF0F49FC1CCDA45E00391857 /* SquareCell.m in Sources */,
 				CF7A21241CBDE184000696F4 /* HomePopTransitionAnimator.m in Sources */,
+				CF0F4A0B1CCE0ABD00391857 /* MineTitleButton.m in Sources */,
 				CF3B6D7A1CA3A9010010E7C0 /* MessageViewController.m in Sources */,
 				CF3B6DA21CA3E8070010E7C0 /* LoadingView.m in Sources */,
 				CFE2713B1CB4FC4800FF641E /* CommentView.m in Sources */,
@@ -660,13 +721,17 @@
 				CFE2712F1CB4F43900FF641E /* ProductToolBar.m in Sources */,
 				CF3B6D951CA3C6EB0010E7C0 /* UIColor+Extension.m in Sources */,
 				CFB545291CCA24C200DA0E9B /* SquareTitleView.m in Sources */,
+				CF0F4A0E1CCE0D0F00391857 /* MineHeadTopView.m in Sources */,
 				CF2D22A61CCB116200AE59B9 /* SquareData.m in Sources */,
 				CF3921171CAE67EA00FDEF91 /* ProductPicView.m in Sources */,
 				CFE271261CB3555600FF641E /* UIBarButtonItem+Extension.m in Sources */,
+				CF0F4A141CCE1B4500391857 /* MineHeadView.m in Sources */,
 				CF4B2F3F1CA4C2AA000EF031 /* TitleScrollView.m in Sources */,
 				CF4B2F4A1CA5227A000EF031 /* HomeData.m in Sources */,
 				CF3B6D031CA36FD00010E7C0 /* main.m in Sources */,
+				CF0F4A111CCE11B700391857 /* UserInfoData.m in Sources */,
 				CF3921091CAE477D00FDEF91 /* TopicDetailData.m in Sources */,
+				CF0F4A021CCDBF8800391857 /* FollowViewController.m in Sources */,
 				CF4B2F451CA514D3000EF031 /* HomeHotView.m in Sources */,
 				CF3B6D771CA3A8F90010E7C0 /* HomeViewController.m in Sources */,
 				CF3B6D961CA3C6EB0010E7C0 /* UIImageView+Extension.m in Sources */,
@@ -677,6 +742,7 @@
 				CFB545261CCA108500DA0E9B /* PhotoGroupView.m in Sources */,
 				CF3921011CAD1DC800FDEF91 /* HomeScrollView.m in Sources */,
 				CF3B6D941CA3C6EB0010E7C0 /* AppConst.m in Sources */,
+				CF0F49FF1CCDAB1F00391857 /* SquareTableHeaderView.m in Sources */,
 				CFC4CE051CA63FAB002F6A48 /* MainNaviViewController.m in Sources */,
 				CF27D1811CCA7CE0006EF0D3 /* SquareHeadView.m in Sources */,
 				CFB545201CCA108500DA0E9B /* PhotoSelectedModel.m in Sources */,

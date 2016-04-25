@@ -34,9 +34,9 @@
             }
             lastView = itemView;
         }
-        [lastView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(self);
-        }];
+//        [lastView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(self);
+//        }];
     }
     return self;
 }

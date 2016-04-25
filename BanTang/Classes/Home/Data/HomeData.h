@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class HomeDataElemen;
 
 @interface HomeData : NSObject
 
 @property (nonatomic,strong) NSArray *topics;
 @property (nonatomic,strong) NSArray *categories;
-@property (nonatomic,strong) NSArray *hotItems;
+@property (nonatomic,strong) NSArray<HomeDataElemen *> *hotItems;
 @property (nonatomic,strong) NSArray *banners;
 
 + (void)loadHomeData:(Completelock)complete ;

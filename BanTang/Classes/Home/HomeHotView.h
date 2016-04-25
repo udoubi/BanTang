@@ -12,5 +12,5 @@
 @interface HomeHotView : UIView
 @property (nonatomic,assign) CGFloat height;
 
--(instancetype)initWithHotItems:(NSArray *)hotItems;
+-(instancetype)initWithTitles:(NSArray *)titles images:(NSArray *)images;
 @end

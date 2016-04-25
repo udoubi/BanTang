@@ -13,16 +13,16 @@
 
 @property (nonatomic,assign) CGFloat itemViewH;
 
-@property (nonatomic,strong) NSArray *hotItems;
+@property (nonatomic,strong) NSArray *titles;
 @end
 
 @implementation HomeHotView
 
--(instancetype)initWithHotItems:(NSArray<HomeDataElemen *> *)hotItems{
+-(instancetype)initWithTitles:(NSArray *)titles images:(NSArray *)images{
     if (self = [super init]) {
-        _hotItems = hotItems;
-        for (NSInteger i = 0; i < hotItems.count; i++) {
-            HomeHotItemView *itemView = [HomeHotItemView IconImageTextView:hotItems[i].photo title:hotItems[i].title placeHolder:nil];
+        _titles = titles;
+        for (NSInteger i = 0; i < titles.count; i++) {
+            HomeHotItemView *itemView = [HomeHotItemView IconImageTextView:images[i] title:titles[i] placeHolder:nil];
             [self addSubview:itemView];
         }
     }
@@ -43,7 +43,7 @@
 
 - (CGFloat)height {
     [self layoutIfNeeded];
-    return self.itemViewH * (self.hotItems.count / 4);
+    return self.itemViewH * (self.titles.count / 4);
 }
 
 @end

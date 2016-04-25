@@ -33,7 +33,7 @@ static NSString * const cellId = @"cell";
     tb.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
     tb.delegate = self;
     tb.dataSource = self;
-    tb.separatorColor = [UIColor colorWithWhite:0.884 alpha:1.000];
+    tb.separatorColor = [UIColor colorWithWhite:0.934 alpha:1.000];
     tb.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [tb registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
     [self.view addSubview:tb];

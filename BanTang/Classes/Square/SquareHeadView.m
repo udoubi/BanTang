@@ -31,9 +31,16 @@
         [self addSubview:titleView];
         [titleView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.top.trailing.equalTo(self);
-            make.height.mas_equalTo(40);
+            make.height.mas_equalTo(35);
         }];
-        
+        UIView *lineView = [UIView new];
+        lineView.backgroundColor = [UIColor colorWithWhite:0.956 alpha:1.000];
+        [self addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(titleView.mas_bottom);
+            make.leading.trailing.equalTo(self);
+            make.height.mas_equalTo(0.5);
+        }];
         
         UIScrollView *channelScrollView = [[UIScrollView alloc]init];
         channelScrollView.pagingEnabled = YES;
@@ -45,7 +52,7 @@
         [channelScrollView addSubview:contentView];
         [channelScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.equalTo(self);
-            make.top.equalTo(titleView.mas_bottom);
+            make.top.equalTo(lineView.mas_bottom);
             make.bottom.equalTo(self);
         }];
         [contentView mas_makeConstraints:^(MASConstraintMaker *make) {

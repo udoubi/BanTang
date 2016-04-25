@@ -1,0 +1,21 @@
+{
+"status": 1,
+"msg": "ok",
+"ts": 1461571652,
+"data": {
+"user_id": "2050990",
+"nickname": "Yi岁的狼",
+"avatar": "http://tp4.sinaimg.cn/2539755263/180/5753191510/1",
+"is_official": 0,
+"user_sign": "我想要的生活",
+"user_cover": "http://7ximm9.com2.z0.glb.qiniucdn.com/user6/cover_ios_640.jpg?v=0",
+"attention_type": 2,
+"credits": "5",
+"attentions": "0",
+"fans": "0",
+"post_like": "1",
+"post_rec": "0",
+"badge_url": "http://m.bantangapp.com/users/badge/index?user_id=2050990",
+"badges": "2"
+}
+}

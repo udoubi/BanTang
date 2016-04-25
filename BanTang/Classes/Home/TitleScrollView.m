@@ -69,7 +69,7 @@
         }];
         UILabel *firstLabel = _contentView.subviews[0];
         firstLabel.highlighted = YES;
-        firstLabel.font = [UIFont fontWithName:ThinFont size:15];
+        firstLabel.font = [UIFont fontWithName:ThinFont size:14];
         [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(itemWidth * 0.6);
             make.height.mas_equalTo(2);
@@ -104,17 +104,20 @@
     [UIView animateWithDuration:0.5 animations:^{
         [self.lineView layoutIfNeeded];
         label.highlighted = YES;
-        label.font = [UIFont fontWithName:ThinFont size:15];
+        label.font = [UIFont fontWithName:ThinFont size:14];
     }];
     
-    CGFloat leftOffset = CGRectGetMidX(label.frame) - CGRectGetWidth(self.bounds) / 2;
-    CGFloat rightOffset = CGRectGetWidth(self.bounds) / 2 + CGRectGetMidX(label.frame) - CGRectGetWidth(self.contentView.frame);
-    // 偏移量
-    if (leftOffset >= 0 && rightOffset <= 0) {
-        [self.titleScrollView setContentOffset:CGPointMake(leftOffset, 0) animated:YES];
-    }else{
-        [self.titleScrollView setContentOffset:CGPointMake((leftOffset >= 0? :0), 0) animated:YES];
-        [self.titleScrollView setContentOffset:CGPointMake((rightOffset <= 0? :CGRectGetWidth(self.contentView.frame) - CGRectGetWidth(self.bounds)), 0) animated:YES];
+    // 当能够滑动的时候才设置偏移量
+    if (self.titleScrollView.contentSize.width > self.titleScrollView.frame.size.width) {
+        CGFloat leftOffset = CGRectGetMidX(label.frame) - CGRectGetWidth(self.bounds) / 2;
+        CGFloat rightOffset = CGRectGetWidth(self.bounds) / 2 + CGRectGetMidX(label.frame) - CGRectGetWidth(self.contentView.frame);
+        // 偏移量
+        if (leftOffset >= 0 && rightOffset <= 0) {
+            [self.titleScrollView setContentOffset:CGPointMake(leftOffset, 0) animated:YES];
+        }else{
+            [self.titleScrollView setContentOffset:CGPointMake((leftOffset >= 0? :0), 0) animated:YES];
+            [self.titleScrollView setContentOffset:CGPointMake((rightOffset <= 0? :CGRectGetWidth(self.contentView.frame) - CGRectGetWidth(self.bounds)), 0) animated:YES];
+        }
     }
 }
 

@@ -1,6 +1,10 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
       "resizing" : {
         "mode" : "3-part-horizontal",
         "center" : {
@@ -14,10 +18,6 @@
       },
       "idiom" : "universal",
       "filename" : "bg_comment_text_field.png",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
       "scale" : "2x"
     },
     {

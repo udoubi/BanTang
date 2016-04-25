@@ -1,0 +1,72 @@
+{
+"status": 1,
+"msg": "ok",
+"ts": 1461571440,
+"data": {
+"is_baichuan": true,
+"is_baichuan_taobaoh5": true,
+"show_tabbar_style": "0",
+"web_search": [
+{
+"channel": "taobao",
+"url": "https://s.m.taobao.com/h5?q=[search_key]",
+"title": "淘宝网",
+"is_default": 1,
+"icon": "http://7viiaj.com2.z0.glb.qiniucdn.com/sousuo_taobao.png"
+},
+{
+"channel": "tmall",
+"url": "https://s.m.tmall.com/m/search.htm?q=[search_key]",
+"title": "天猫",
+"is_default": 0,
+"icon": "http://7viiaj.com2.z0.glb.qiniucdn.com/sousuo_tianmao.png"
+},
+{
+"channel": "jd",
+"url": "http://m.jd.com/",
+"title": "京东",
+"is_default": 0,
+"icon": "http://7viiaj.com2.z0.glb.qiniucdn.com/sousuo_jingdong.png"
+}
+],
+"web_order": [
+{
+"channel": "taobao",
+"url": "https://h5.m.taobao.com/mlapp/olist.html",
+"title": "淘宝订单",
+"icon": "http://7viiaj.com2.z0.glb.qiniucdn.com/shop/taobao-order.png?v=1"
+},
+{
+"channel": "jd",
+"url": "http://home.m.jd.com/newAllOrders/newAllOrders.action",
+"title": "京东订单",
+"icon": "http://7viiaj.com2.z0.glb.qiniucdn.com/shop/jd-order.png?v=1"
+},
+{
+"channel": "amazon",
+"url": "https://www.amazon.cn/gp/aw/ya/or",
+"title": "亚马逊订单",
+"icon": "http://7viiaj.com2.z0.glb.qiniucdn.com/shop/z-order.png?v=1"
+}
+],
+"web_search_js": "http://7xlxny.com2.z0.glb.qiniucdn.com/getSkuInfo/getPageContent.js",
+"start_ad": {
+"pic": "http://7xiwnz.com2.z0.glb.qiniucdn.com/ad/vip.jpg",
+"is_show": false,
+"ad_url": "",
+"ad_time": 2,
+"skip_show": true
+},
+"app_update": {
+"update_type": 1,
+"update_versions": "5.6",
+"update_url": "https://itunes.apple.com/cn/app/ban-tang/id955357564?mt=8",
+"update_message": "1、社区全新改版；\n2、新增清单长图分享功能，快点击分享试试吧；\n3、修复了之前存在的一些问题。"
+},
+"user_cover": "http://7ximm9.com2.z0.glb.qiniucdn.com/user6/cover_ios_640.jpg?v=0",
+"credit_mall_url": "http://m.bantangapp.com/store/credits/index",
+"signin_bg_1": "http://7xiwnz.com2.z0.glb.qiniucdn.com/signin/20160425-bg1.jpg",
+"signin_bg_2": "http://7xiwnz.com2.z0.glb.qiniucdn.com/signin/20160425-bg2.jpg",
+"signin_share_message": "我会遇到想遇到的，幸福我希望幸福的，忘了去记得美好的错过。"
+}
+}

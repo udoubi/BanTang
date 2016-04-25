@@ -19,8 +19,10 @@
     if (self = [super initWithFrame:frame]) {
         SquareTitleViewButton *leftButon = [SquareTitleViewButton buttonWithType:UIButtonTypeCustom];
         [leftButon setTitle:@"广场" forState:UIControlStateNormal];
+        leftButon.tag = 0;
         SquareTitleViewButton *rightButon = [SquareTitleViewButton buttonWithType:UIButtonTypeCustom];
         [rightButon setTitle:@"关注" forState:UIControlStateNormal];
+        rightButon.tag = 1;
         [leftButon addTarget:self action:@selector(buttonCliked:) forControlEvents:UIControlEventTouchUpInside];
         [rightButon addTarget:self action:@selector(buttonCliked:) forControlEvents:UIControlEventTouchUpInside];
         [leftButon sizeToFit];
@@ -57,6 +59,11 @@
 }
 
 - (void)buttonCliked:(UIButton *)btn {
+    if ([self.delegate respondsToSelector:@selector(didSquareTitleViewDelegate:atIndex:)]) {
+        [self.delegate didSquareTitleViewDelegate:self atIndex:btn.tag];
+    }
+    
+    
     self.rightButon.selected = NO;
     self.leftButon.selected = NO;
     btn.selected = !btn.selected;
