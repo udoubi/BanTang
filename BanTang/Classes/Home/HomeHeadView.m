@@ -44,8 +44,7 @@
         
         [hotView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(pageView.mas_bottom);
-            make.leading.trailing.equalTo(self);
-            make.height.mas_equalTo(hotView.height);
+            make.leading.trailing.bottom.equalTo(self);
         }];
     }
     return self;

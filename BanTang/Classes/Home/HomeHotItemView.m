@@ -18,6 +18,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.imageView = [[UIImageView alloc]init];
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageView.userInteractionEnabled = NO;
         [self addSubview:self.imageView];
         
@@ -26,17 +27,15 @@
         self.label.font = [UIFont fontWithName:ThinFont size:12];
         self.label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.label];
-        [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self);
-            make.trailing.equalTo(self);
-            make.bottom.equalTo(self);
-            make.height.mas_equalTo(20);
-        }];
         [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.mas_equalTo(15);
-            make.top.mas_equalTo(15);
-            make.trailing.mas_equalTo(-15);
-            make.bottom.equalTo(self.label.mas_top).offset(-10);
+            make.centerX.equalTo(self);
+            make.size.mas_equalTo(CGSizeMake(45, 45));
+            make.top.equalTo(self).offset(15);
+        }];
+        [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.imageView.mas_bottom).offset(10);
+            make.height.mas_equalTo(20);
+            make.leading.trailing.bottom.equalTo(self);
         }];
     }
     return self;
@@ -45,7 +44,12 @@
 
 + (instancetype)IconImageTextView:(NSString *)image title:(NSString *)title placeHolder:(UIImage *)placeHolder {
     HomeHotItemView *view = [[self alloc]init];
-    [view.imageView setImageWithURL:[NSURL URLWithString:image] placeholderImage:placeHolder animate:YES];
+    if ([UIImage imageNamed:image])  {
+        view.imageView.image = [UIImage imageNamed:image];
+    }else {
+        [view.imageView setImageWithURL:[NSURL URLWithString:image] placeholderImage:placeHolder animate:YES];
+    }
+    
     view.label.text = title;
     return view;
 }

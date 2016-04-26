@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoData.h"
 
 @interface MineHeadView : UIView
+
+@property (nonatomic,strong) UserInfoData *userInfo;
 
 @end

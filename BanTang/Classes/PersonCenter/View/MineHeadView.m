@@ -11,26 +11,52 @@
 #import "HomeHotView.h"
 #import "TitleScrollView.h"
 
+@interface MineHeadView()
+
+@property (nonatomic,strong) MineHeadTopView *topView;
+
+@end
+
 @implementation MineHeadView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        MineHeadTopView *topView = [[MineHeadTopView alloc]initWithFrame:CGRectMake(0, 0, Width, 260)];
+        
+        self.backgroundColor = [UIColor whiteColor];
+        MineHeadTopView *topView = [[MineHeadTopView alloc]init];
         
         NSArray *titles = @[@"订单",@"好友",@"积分",@"小分队"];
         NSArray *images = @[@"center_menu_order_icon",@"center_menu_fans_icon",@"center_menu_jifen_icon",@"center_menu_xiaofendui_icon"];
         
         HomeHotView *hotView = [[HomeHotView alloc]initWithTitles:titles images:images];
-        hotView.frame = CGRectMake(0, CGRectGetMaxY(topView.frame), Width, hotView.height);
-        NSArray *subTitles = @[@"单品",@"清单",@"互动",@"发布"]
+        NSArray *subTitles = @[@"单品",@"清单",@"互动",@"发布"];
         
         TitleScrollView *titleView = [[TitleScrollView alloc]initWithTitleArray:subTitles itemWidth:Width / 4];
-        titleView.frame = CGRectMake(0, CGRectGetMaxY(hotView.frame), Width, 30);
+        titleView.layer.borderWidth = 0.5;
+        titleView.layer.borderColor = [UIColor colorWithWhite:0.977 alpha:1.000].CGColor;
         [self addSubview:topView];
         [self addSubview:hotView];
         [self addSubview:titleView];
+        
+        [topView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.leading.trailing.equalTo(self);
+            make.height.mas_equalTo(Width * 0.66);
+        }];
+        [hotView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(topView.mas_bottom);
+            make.leading.trailing.equalTo(self);
+        }];
+        [titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(hotView.mas_bottom);
+            make.height.mas_equalTo(40);
+            make.leading.trailing.bottom.equalTo(self);
+        }];
+        
+        self.topView = topView;
     }
     return self;
 }
-
+- (void)setUserInfo:(UserInfoData *)userInfo {
+    self.topView.userInfo = userInfo;
+}
 @end

@@ -26,7 +26,7 @@
     if (self = [super initWithFrame:frame]) {
         UIImageView *bgImageView = [[UIImageView alloc]init];
         UIImageView *headView = [[UIImageView alloc]init];
-        headView.layer.cornerRadius = 30;
+        headView.layer.cornerRadius = 25;
         headView.layer.masksToBounds = YES;
         headView.layer.borderWidth = 1;
         headView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -53,7 +53,9 @@
         [boxView addSubview:attentionsBtn];
         [boxView addSubview:fansBtn];
         [boxView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.trailing.bottom.equalTo(self);
+            make.bottom.equalTo(self);
+            make.width.mas_equalTo(Width);
+            make.centerX.equalTo(self);
             make.height.mas_equalTo(60);
         }];
         [achievementBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -74,19 +76,19 @@
         }];
         
         [signLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.equalTo(boxView.mas_top).offset(-10);
+            make.bottom.equalTo(boxView.mas_top).offset(-1);
             make.leading.trailing.equalTo(self);
             make.height.mas_equalTo(20);
         }];
         [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.equalTo(self);
-            make.bottom.equalTo(signLabel.mas_top).offset(-6);
+            make.bottom.equalTo(signLabel.mas_top).offset(-3);
             make.height.mas_equalTo(20);
         }];
         [headView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(60, 60));
+            make.size.mas_equalTo(CGSizeMake(50, 50));
             make.centerX.equalTo(self);
-            make.bottom.equalTo(nameLabel.mas_top).offset(-10);
+            make.bottom.equalTo(nameLabel.mas_top).offset(-8);
         }];
         [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);

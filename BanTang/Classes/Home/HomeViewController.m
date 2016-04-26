@@ -95,10 +95,9 @@ static const CGFloat kHotViewMargin = 10;
     }];
 }
 
-- (void) buildHeaderView {
+- (void) buildContentView {
     self.headerView = [[UIView alloc]init];
     HomeHeadView *headView = [[HomeHeadView alloc]initWithHomeData:self.homeData];
-    headView.frame = CGRectMake(0, 0, Width, headView.height + kHotViewMargin);
     [self.headerView addSubview:headView];
 
     NSMutableArray *categoryTitles = [NSMutableArray array];
@@ -107,54 +106,60 @@ static const CGFloat kHotViewMargin = 10;
     }];
     self.titleView = [[TitleScrollView alloc]initWithTitleArray:categoryTitles itemWidth:kTitleViewItemWidth];
     self.titleView.delegate = self;
-    self.titleView.frame = CGRectMake(0, headView.height + kHotViewMargin, Width, kTitleVewHeight);
     [self.headerView addSubview:self.titleView];
     
     self.headerView.backgroundColor = [UIColor whiteColor];
+    
+    [headView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.top.trailing.equalTo(self.headerView);
+    }];
+    [self.titleView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(headView.mas_bottom);
+        make.leading.trailing.bottom.equalTo(self.headerView);
+        make.height.mas_equalTo(45);
+    }];
+    
+    
     [self.contentView addSubview:self.headerView];
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView);
         make.leading.trailing.equalTo(self.contentView);
-        make.height.mas_equalTo(headView.height + kHotViewMargin + kTitleVewHeight);
     }];
-}
-
-
-- (void)buildCollectionView {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing = 0;
-    layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.mainCollectionView = ({
-        UICollectionView *view = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
-        view.pagingEnabled = YES;
-        view.backgroundColor = [UIColor whiteColor];
-        view.dataSource = self;
-        view.delegate = self;
-        view.bounces = NO;
-        [view registerClass:[HomeCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([HomeCollectionCell class])];
-        view;
-    });
     [self.contentView addSubview:self.mainCollectionView];
     [self.mainCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.contentView);
         make.top.equalTo(self.headerView.mas_bottom);
-        make.width.mas_equalTo(Width);
+        make.leading.trailing.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(Height - NavigationBarHeight- kTitleVewHeight - TabbarBottomHeight);
     }];
     
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.mainCollectionView);
-    }];
-    
+}
+
+
+- (UICollectionView *)mainCollectionView {
+    if (_mainCollectionView == nil) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.minimumInteritemSpacing = 0;
+        layout.minimumLineSpacing = 0;
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        _mainCollectionView = ({
+            UICollectionView *view = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
+            view.pagingEnabled = YES;
+            view.backgroundColor = [UIColor whiteColor];
+            view.dataSource = self;
+            view.delegate = self;
+            view.bounces = NO;
+            [view registerClass:[HomeCollectionCell class] forCellWithReuseIdentifier:NSStringFromClass([HomeCollectionCell class])];
+            view;
+        });
+    }
+    return _mainCollectionView;
 }
 
 - (void)loadData{
     [HomeData loadHomeData:^(HomeData *data, NSError *error) {
         self.homeData = data;
-        [self buildHeaderView];
-        [self buildCollectionView];
+        [self buildContentView];
         
     }];
 }

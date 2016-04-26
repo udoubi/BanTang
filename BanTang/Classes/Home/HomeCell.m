@@ -40,7 +40,7 @@
             make.height.mas_equalTo(Width * 0.53);
         }];
         [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_bigImageView.mas_bottom);
+            make.top.equalTo(_bigImageView.mas_bottom).offset(6);
             make.leading.trailing.equalTo(self);
             make.height.mas_equalTo(30);
         }];
@@ -75,6 +75,6 @@
 
 - (CGFloat)height {
     [self layoutIfNeeded];
-    return CGRectGetMaxY(self.likesLabel.frame) + 10;
+    return CGRectGetMaxY(self.likesLabel.frame) + 14;
 }
 @end
