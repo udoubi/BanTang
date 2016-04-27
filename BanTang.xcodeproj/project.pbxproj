@@ -17,6 +17,7 @@
 		CF0F4A0E1CCE0D0F00391857 /* MineHeadTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F4A0D1CCE0D0F00391857 /* MineHeadTopView.m */; };
 		CF0F4A111CCE11B700391857 /* UserInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F4A101CCE11B700391857 /* UserInfoData.m */; };
 		CF0F4A141CCE1B4500391857 /* MineHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF0F4A131CCE1B4500391857 /* MineHeadView.m */; };
+		CF24F9331CCF65E800312453 /* AppSignView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF24F9321CCF65E800312453 /* AppSignView.m */; };
 		CF27D17E1CCA7912006EF0D3 /* SquareChannelItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF27D17D1CCA7912006EF0D3 /* SquareChannelItemView.m */; };
 		CF27D1811CCA7CE0006EF0D3 /* SquareHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF27D1801CCA7CE0006EF0D3 /* SquareHeadView.m */; };
 		CF27D1831CCA7E90006EF0D3 /* community_data in Resources */ = {isa = PBXBuildFile; fileRef = CF27D1821CCA7E90006EF0D3 /* community_data */; };
@@ -99,6 +100,8 @@
 		CF0F4A101CCE11B700391857 /* UserInfoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoData.m; sourceTree = "<group>"; };
 		CF0F4A121CCE1B4500391857 /* MineHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineHeadView.h; sourceTree = "<group>"; };
 		CF0F4A131CCE1B4500391857 /* MineHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineHeadView.m; sourceTree = "<group>"; };
+		CF24F9311CCF65E800312453 /* AppSignView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSignView.h; sourceTree = "<group>"; };
+		CF24F9321CCF65E800312453 /* AppSignView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSignView.m; sourceTree = "<group>"; };
 		CF27D17C1CCA7912006EF0D3 /* SquareChannelItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareChannelItemView.h; path = ../SquareChannelItemView.h; sourceTree = "<group>"; };
 		CF27D17D1CCA7912006EF0D3 /* SquareChannelItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SquareChannelItemView.m; path = ../SquareChannelItemView.m; sourceTree = "<group>"; };
 		CF27D17F1CCA7CE0006EF0D3 /* SquareHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareHeadView.h; path = ../SquareHeadView.h; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				CF3B6D731CA3A8DF0010E7C0 /* BaseViewController.m */,
 				CFC4CE031CA63FAB002F6A48 /* MainNaviViewController.h */,
 				CFC4CE041CA63FAB002F6A48 /* MainNaviViewController.m */,
+				CF24F9311CCF65E800312453 /* AppSignView.h */,
+				CF24F9321CCF65E800312453 /* AppSignView.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				CF0F4A0E1CCE0D0F00391857 /* MineHeadTopView.m in Sources */,
 				CF2D22A61CCB116200AE59B9 /* SquareData.m in Sources */,
 				CF3921171CAE67EA00FDEF91 /* ProductPicView.m in Sources */,
+				CF24F9331CCF65E800312453 /* AppSignView.m in Sources */,
 				CFE271261CB3555600FF641E /* UIBarButtonItem+Extension.m in Sources */,
 				CF0F4A141CCE1B4500391857 /* MineHeadView.m in Sources */,
 				CF4B2F3F1CA4C2AA000EF031 /* TitleScrollView.m in Sources */,

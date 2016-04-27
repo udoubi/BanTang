@@ -13,6 +13,7 @@
 #import "PersonCenterViewController.h"
 #import "MainNaviViewController.h"
 #import "PhotoController.h"
+#import "AppSignView.h"
 
 @interface MainTabBarController ()<UITabBarControllerDelegate>
 
@@ -23,8 +24,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
-    
     [self buildTabbarController];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self addSignView];
+    });
 }
 
 - (void)buildTabbarController{
@@ -55,6 +58,12 @@
         return NO;
     }
     return YES;
+}
+
+- (void)addSignView {
+    AppSignView *signView = [[AppSignView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    signView.url = @"http://7xiwnz.com2.z0.glb.qiniucdn.com/signin/20160425-bg1.jpg";
+    [[UIApplication sharedApplication].keyWindow addSubview:signView];
 }
 
 @end

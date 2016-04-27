@@ -77,6 +77,7 @@
     if (cell == nil) {
         cell = [[SquareCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     
 }
