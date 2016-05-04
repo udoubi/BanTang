@@ -602,7 +602,7 @@
 				TargetAttributes = {
 					CF3B6CFD1CA36FD00010E7C0 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = A68MT549DE;
+						DevelopmentTeam = Y88L3HBB43;
 					};
 				};
 			};
@@ -864,7 +864,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BanTang/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = BanTang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bxt189.BanTang;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.netboss.zhonghua;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -879,7 +879,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/BanTang/Other/PrefixHeader.pch";
 				INFOPLIST_FILE = BanTang/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bxt189.BanTang;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.netboss.zhonghua;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

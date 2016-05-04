@@ -20,6 +20,7 @@
         self.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.500];
         UIImageView *imageView = [[UIImageView alloc]init];
         UIView *bgView = [[UIView alloc]init];
+        bgView.layer.cornerRadius = 3;
         bgView.backgroundColor = [UIColor whiteColor];
         UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [closeBtn setImage:[UIImage imageNamed:@"sign_alert_close_btn"] forState:UIControlStateNormal];
