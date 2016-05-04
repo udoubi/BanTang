@@ -636,8 +636,8 @@ dispatch_semaphore_signal(_lock);
         size.height += rect.origin.y;
         if (size.width < 0) size.width = 0;
         if (size.height < 0) size.height = 0;
-        size.width = YYTextCGFloatPixelCeil(size.width);
-        size.height = YYTextCGFloatPixelCeil(size.height);
+        size.width = ceil(size.width);
+        size.height = ceil(size.height);
         textBoundingSize = size;
     }
     
@@ -660,8 +660,8 @@ dispatch_semaphore_signal(_lock);
                 if (runCount > 0) {
                     CTRunRef run = CFArrayGetValueAtIndex(runs, runCount - 1);
                     attrs = (id)CTRunGetAttributes(run);
-                    attrs = attrs.mutableCopy;
-                    [attrs removeObjectForKey:YYTextAttachmentAttributeName];
+                    attrs = attrs ? attrs.mutableCopy : [NSMutableArray new];
+                    [attrs removeObjectsForKeys:[NSMutableAttributedString yy_allDiscontinuousAttributeKeys]];
                     CTFontRef font = (__bridge CFTypeRef)attrs[(id)kCTFontAttributeName];
                     CGFloat fontSize = font ? CTFontGetSize(font) : 12.0;
                     UIFont *uiFont = [UIFont systemFontOfSize:fontSize * 0.9];
@@ -674,6 +674,11 @@ dispatch_semaphore_signal(_lock);
                         attrs[(id)kCTFontAttributeName] = (__bridge id)(font);
                         uiFont = nil;
                         CFRelease(font);
+                    }
+                    CGColorRef color = (__bridge CGColorRef)(attrs[(id)kCTForegroundColorAttributeName]);
+                    if (color && CFGetTypeID(color) == CGColorGetTypeID() && CGColorGetAlpha(color) == 0) {
+                        // ignore clear color
+                        [attrs removeObjectForKey:(id)kCTForegroundColorAttributeName];
                     }
                     if (!attrs) attrs = [NSMutableDictionary new];
                 }
@@ -2567,11 +2572,13 @@ static void YYTextDrawText(YYTextLayout *layout, CGContextRef context, CGSize si
             YYTextLine *line = lines[l];
             if (layout.truncatedLine && layout.truncatedLine.index == line.index) line = layout.truncatedLine;
             NSArray *lineRunRanges = line.verticalRotateRange;
-            CGContextSetTextMatrix(context, CGAffineTransformIdentity);
-            CGContextSetTextPosition(context, line.position.x + verticalOffset, size.height - line.position.y);
+            CGFloat posX = line.position.x + verticalOffset;
+            CGFloat posY = size.height - line.position.y;
             CFArrayRef runs = CTLineGetGlyphRuns(line.CTLine);
             for (NSUInteger r = 0, rMax = CFArrayGetCount(runs); r < rMax; r++) {
                 CTRunRef run = CFArrayGetValueAtIndex(runs, r);
+                CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+                CGContextSetTextPosition(context, posX, posY);
                 YYTextDrawRun(line, run, context, size, isVertical, lineRunRanges[r], verticalOffset);
             }
             if (cancel && cancel()) break;
@@ -2981,18 +2988,19 @@ static void YYTextDrawShadow(YYTextLayout *layout, CGContextRef context, CGSize 
         CGContextTranslateCTM(context, point.x, point.y);
         CGContextTranslateCTM(context, 0, size.height);
         CGContextScaleCTM(context, 1, -1);
-        CGContextSetTextMatrix(context, CGAffineTransformIdentity);
         NSArray *lines = layout.lines;
         for (NSUInteger l = 0, lMax = layout.lines.count; l < lMax; l++) {
             if (cancel && cancel()) break;
-            
             YYTextLine *line = lines[l];
             if (layout.truncatedLine && layout.truncatedLine.index == line.index) line = layout.truncatedLine;
             NSArray *lineRunRanges = line.verticalRotateRange;
-            CGContextSetTextPosition(context, line.position.x, size.height - line.position.y);
+            CGFloat linePosX = line.position.x;
+            CGFloat linePosY = size.height - line.position.y;
             CFArrayRef runs = CTLineGetGlyphRuns(line.CTLine);
             for (NSUInteger r = 0, rMax = CFArrayGetCount(runs); r < rMax; r++) {
                 CTRunRef run = CFArrayGetValueAtIndex(runs, r);
+                CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+                CGContextSetTextPosition(context, linePosX, linePosY);
                 NSDictionary *attrs = (id)CTRunGetAttributes(run);
                 YYTextShadow *shadow = attrs[YYTextShadowAttributeName];
                 YYTextShadow *nsShadow = [YYTextShadow shadowWithNSShadow:attrs[NSShadowAttributeName]]; // NSShadow compatible
@@ -3037,11 +3045,14 @@ static void YYTextDrawInnerShadow(YYTextLayout *layout, CGContextRef context, CG
         YYTextLine *line = lines[l];
         if (layout.truncatedLine && layout.truncatedLine.index == line.index) line = layout.truncatedLine;
         NSArray *lineRunRanges = line.verticalRotateRange;
-        CGContextSetTextPosition(context, line.position.x, size.height - line.position.y);
+        CGFloat linePosX = line.position.x;
+        CGFloat linePosY = size.height - line.position.y;
         CFArrayRef runs = CTLineGetGlyphRuns(line.CTLine);
         for (NSUInteger r = 0, rMax = CFArrayGetCount(runs); r < rMax; r++) {
             CTRunRef run = CFArrayGetValueAtIndex(runs, r);
             if (CTRunGetGlyphCount(run) == 0) continue;
+            CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+            CGContextSetTextPosition(context, linePosX, linePosY);
             NSDictionary *attrs = (id)CTRunGetAttributes(run);
             YYTextShadow *shadow = attrs[YYTextInnerShadowAttributeName];
             while (shadow) {
